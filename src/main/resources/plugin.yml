@@ -1,0 +1,11 @@
+name: party
+version: '1.0'
+main: fr.rudy.party.Main
+api-version: '1.21'
+softdepend: [MythicDungeons]
+
+
+commands:
+  party:
+    description: Commande pour gérer les groupes (party)
+    usage: /party

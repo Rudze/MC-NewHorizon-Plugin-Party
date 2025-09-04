@@ -1,0 +1,5 @@
+fr\rudy\party\NewHorizonParty.class
+fr\rudy\party\Main.class
+fr\rudy\party\command\PartyCommand.class
+fr\rudy\party\menu\PartyMenu.class
+fr\rudy\party\manager\PartyManager.class
