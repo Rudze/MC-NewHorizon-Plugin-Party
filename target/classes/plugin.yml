@@ -1,5 +1,5 @@
 name: party
-version: '1.0'
+version: '1.1'
 main: fr.rudy.party.Main
 api-version: '1.21'
 softdepend: [MythicDungeons]

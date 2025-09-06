@@ -3,6 +3,8 @@ package fr.rudy.party;
 import fr.rudy.party.command.PartyCommand;
 import fr.rudy.party.manager.PartyManager;
 import fr.rudy.party.menu.PartyMenu;
+import fr.rudy.party.placeholder.PartyPlaceholders;
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class Main extends JavaPlugin {
@@ -35,11 +37,16 @@ public class Main extends JavaPlugin {
         if (getCommand("party") != null) {
             getCommand("party").setExecutor(new PartyCommand(partyManager, partyMenu));
         } else {
-            getLogger().warning("La commande 'party' n'est pas définie dans le plugin.yml !");
+            //getLogger().warning("La commande 'party' n'est pas définie dans le plugin.yml !");
         }
 
-        // Enregistrement des éventuels listeners (menus, invitations...)
-        // ex: Bukkit.getPluginManager().registerEvents(new PartyMenuListener(), this);
+        // Enregistrement des placeholders si PlaceholderAPI est présent
+        if (Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI")) {
+            new PartyPlaceholders(partyManager).register();
+            //getLogger().info("✅ PlaceholderAPI détecté, les placeholders sont enregistrés !");
+        } else {
+            //getLogger().warning("⚠ PlaceholderAPI n’est pas installé, les placeholders ne fonctionneront pas.");
+        }
 
         getLogger().info("✅ Plugin PartySystem activé !");
     }
